@@ -1,23 +1,35 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import Modal from './modal';
 
 function App() {
+  
+  const [isModalOpen, setModalOpen] = useState(false);
+  const [todoTitleInP, setTodoTitleInP] = useState('')
+  const [todoDesInP, setTodoDesInP] = useState('')
+  const [todoArrayInP, setTodoArrayInP] = useState([])
+
+  const handleSaveData = (title, des) => {
+    setTodoTitleInP(title);
+    setTodoDesInP(des);
+    setTodoArrayInP(todoArrayInP.push([todoTitleInP, todoDesInP]))
+    setTodoTitleInP('');
+    setTodoDesInP('');
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='box'>
+      {isModalOpen && (
+          <Modal onClose={() => setModalOpen(false)} onAdd={handleSaveData}/>
+        )}
+      <div className='todo-box'>
+        <div className='top-box'>
+          {todoArrayInP && (todoArrayInP)}
+        </div>
+        <div className='bottom-box'>
+          <button onClick={() => setModalOpen(true)}>Add Todo</button>
+        </div>
+      </div>
     </div>
   );
 }
