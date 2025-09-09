@@ -5,12 +5,11 @@ import { useState } from 'react'
 function Modal({ onClose, onAdd }) {
 
   const [todoTitle, setTodoTitle] = useState('')
-  const [todoDes, setTodoDes] = useState('')
 
   const handleClick = () => {
-    onAdd(todoTitle, todoDes);
+    onAdd(todoTitle);
     setTodoTitle('')
-    setTodoDes('')
+    onClose();
   }
 
   return (
@@ -23,17 +22,8 @@ function Modal({ onClose, onAdd }) {
             <input
               type='text'
               value={todoTitle}
-              onChange={(e) => setTodoTitle(e)}
+              onChange={(e) => setTodoTitle(e.target.value)}
               placeholder='add todo title here...'
-            />
-          </div>
-          <div className='bitGap'>
-            <label>Add Description</label>
-            <textarea
-              type='text'
-              value={todoDes}
-              onChange={(e) => setTodoDes(e)}
-              placeholder='add todo description here...'
             />
           </div>
         </div>
