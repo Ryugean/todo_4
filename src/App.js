@@ -1,38 +1,68 @@
-import { useState } from 'react';
-import './App.css';
-import Modal from './modal';
-import TodoItem from './components/todoItem';
+import { useState } from "react";
+import "./App.css";
+import Modal from "./modal";
+import TodoItem from "./components/todoItem";
 
 function App() {
-  
   const [isModalOpen, setModalOpen] = useState(false);
-  const [todoArrayInP, setTodoArrayInP] = useState([])
+  const [todoArrayInP, setTodoArrayInP] = useState([]);
+  const [editingIndex, setEditingIndex] = useState(null);
 
   const handleSaveData = (title) => {
-    setTodoArrayInP((prevTodo) => [...prevTodo, title])
-  }
-  
+    setTodoArrayInP((prevTodo) => [...prevTodo, title]);
+  };
+
   const handleDelete = (indextoDelete) => {
-    setTodoArrayInP(prev => prev.filter((_, index) => index !== indextoDelete));
-  }
+    setTodoArrayInP((prev) =>
+      prev.filter((_, index) => index !== indextoDelete)
+    );
+  };
 
   const handleUpdate = (indextoUpdate) => {
+    setEditingIndex(indextoUpdate);
     setModalOpen(true);
-    <Modal onClose={() => setModalOpen(false)} onAdd={handleSaveData}/>
-  }
+  };
 
   return (
-    <div className='box'>
+    <div className="box">
       {isModalOpen && (
-          <Modal onClose={() => setModalOpen(false)} onAdd={handleSaveData}/>
-        )}
-      <div className='todo-box'>
-        <div className='top-box'>
+        <Modal
+          initialTitle={editingIndex != null ? todoArrayInP[editingIndex] : ""}
+          onClose={() => {
+            setModalOpen(false);
+            setEditingIndex(null);
+          }}
+          onAdd={(title) => {
+            if (editingIndex == null) {
+              handleSaveData(title);
+            } else {
+              setTodoArrayInP((prev) =>
+                prev.map((t, i) => (i === editingIndex ? title : t))
+              );
+            }
+            setModalOpen(false);
+            setEditingIndex(null);
+          }}
+        />
+      )}
+      <div className="todo-box">
+        <div className="top-box">
           {todoArrayInP.map((item, index) => {
-            return <TodoItem key={index} name={item} onDelete={()=>{handleDelete(index)}} onUpdate={() => {handleUpdate(index)}}/>
+            return (
+              <TodoItem
+                key={index}
+                name={item}
+                onDelete={() => {
+                  handleDelete(index);
+                }}
+                onUpdate={() => {
+                  handleUpdate(index);
+                }}
+              />
+            );
           })}
         </div>
-        <div className='bottom-box'>
+        <div className="bottom-box">
           <button onClick={() => setModalOpen(true)}>Add Todo</button>
         </div>
       </div>

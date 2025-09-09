@@ -2,9 +2,9 @@ import React from 'react'
 import './modal.css'
 import { useState } from 'react'
 
-function Modal({ onClose, onAdd }) {
+function Modal({ onClose, onAdd, initialTitle = '' }) {
 
-  const [todoTitle, setTodoTitle] = useState('')
+  const [todoTitle, setTodoTitle] = useState(initialTitle)
 
   const handleClick = () => {
     onAdd(todoTitle);
@@ -22,6 +22,7 @@ function Modal({ onClose, onAdd }) {
             <input
               type='text'
               value={todoTitle}
+              defaultValue={initialTitle}
               onChange={(e) => setTodoTitle(e.target.value)}
               placeholder='add todo title here...'
             />
