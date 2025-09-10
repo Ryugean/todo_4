@@ -2,9 +2,14 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-top: 5px;
 }
 
 .spaceClass{
   display: flex;
   gap: 5px;
+}
+
+.strike-box:checked + .strike-text{
+  text-decoration: line-through;
 }

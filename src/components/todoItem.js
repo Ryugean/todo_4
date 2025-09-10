@@ -5,7 +5,10 @@ const TodoItem = ({ name, onDelete, onUpdate }) => {
   return (
     <div className='todoItem'>
       <div>
-        <p>{name}</p>
+        <label>
+          <input className='strike-box' type='checkbox'/>
+          <span className='strike-text'>{name}</span>
+        </label>
       </div>
       <div className='spaceClass'>
         <button onClick={onUpdate}>Update</button>
