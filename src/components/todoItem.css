@@ -3,13 +3,25 @@
   align-items: center;
   justify-content: space-between;
   margin-top: 5px;
+  background-color: blanchedalmond;
+  padding: 10px;
+  border-radius: 5px;
 }
 
 .spaceClass{
   display: flex;
-  gap: 5px;
+  gap: 10px;
 }
 
 .strike-box:checked + .strike-text{
   text-decoration: line-through;
+}
+
+.button-secondary{
+  background-color: cadetblue;
+  border: none;
+  color: white;
+  border-radius: 3px;
+  padding: 6px;
+  cursor: pointer;
 }

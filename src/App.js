@@ -47,6 +47,9 @@ function App() {
       )}
       <div className="todo-box">
         <div className="top-box">
+          <div className="heading">
+            <h2 style={{color: "white"}}>Todo-List</h2>
+          </div>
           {todoArrayInP.map((item, index) => {
             return (
               <TodoItem
@@ -63,7 +66,7 @@ function App() {
           })}
         </div>
         <div className="bottom-box">
-          <button onClick={() => setModalOpen(true)}>Add Todo</button>
+          <button className="button-primary" onClick={() => setModalOpen(true)}>Add Todo</button>
         </div>
       </div>
     </div>

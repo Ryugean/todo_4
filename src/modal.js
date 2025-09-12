@@ -29,8 +29,8 @@ function Modal({ onClose, onAdd, initialTitle = '' }) {
           </div>
         </div>
         <div className='modal-bottom'>
-          <button onClick={handleClick}>Add Entry</button>
-          <button onClick={onClose}>Cancel</button>
+          <button className='button-secondary' onClick={handleClick}>Add Entry</button>
+          <button className='button-secondary' onClick={onClose}>Cancel</button>
         </div>
       </div>
     </div>

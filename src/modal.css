@@ -36,3 +36,12 @@
   flex-direction: column;
   margin-top: 15px;
 }
+
+.button-secondary{
+  background-color: cadetblue;
+  border: none;
+  color: white;
+  border-radius: 3px;
+  padding: 6px;
+  cursor: pointer;
+}

@@ -11,10 +11,10 @@
 }
 
 .todo-box{
-  border: solid 3px black;
   border-radius: 4px;
   width: 400px;
   height: 500px;
+  background-color: crimson;
 }
 
 .top-box{
@@ -27,8 +27,20 @@
   margin: 10px;
   padding: 10px;
   height: auto;
-  border-top: solid 2px black;
+  border-top: solid 2px rgb(74, 74, 74);
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.heading{
+  border-bottom: 2px solid rgb(74, 74, 74);
+}
+
+.button-primary{
+  background-color: white;
+  border: none;
+  border-radius: 3px;
+  padding: 6px;
+  font-weight: bold;
 }
