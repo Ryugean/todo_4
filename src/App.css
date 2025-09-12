@@ -43,6 +43,7 @@
   border-radius: 3px;
   padding: 6px;
   font-weight: bold;
+  cursor: pointer;
 }
 
 .todo-items{
