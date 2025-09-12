@@ -13,6 +13,10 @@
   gap: 10px;
 }
 
+.strike-text{
+  color: black;
+}
+
 .strike-box:checked + .strike-text{
   text-decoration: line-through;
 }

@@ -4,8 +4,8 @@ import  './todoItem.css'
 const TodoItem = ({ name, onDelete, onUpdate }) => {
   return (
     <div className='todoItem'>
-      <div className='spaceClass'>
-        <label>
+      <div>
+        <label className='spaceClass'>
           <input className='strike-box' type='checkbox'/>
           <span className='strike-text'>{name}</span>
         </label>

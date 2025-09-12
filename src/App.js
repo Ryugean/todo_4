@@ -50,7 +50,9 @@ function App() {
           <div className="heading">
             <h2 style={{color: "white"}}>Todo-List</h2>
           </div>
-          {todoArrayInP.map((item, index) => {
+          <div className="todo-items">
+            { todoArrayInP.length!==0 ?
+          todoArrayInP.map((item, index) => {
             return (
               <TodoItem
                 key={index}
@@ -63,7 +65,8 @@ function App() {
                 }}
               />
             );
-          })}
+          }) : "Add todos to see it here..."}
+          </div>
         </div>
         <div className="bottom-box">
           <button className="button-primary" onClick={() => setModalOpen(true)}>Add Todo</button>

@@ -44,3 +44,8 @@
   padding: 6px;
   font-weight: bold;
 }
+
+.todo-items{
+  color: lightsteelblue;
+  padding: 5px;
+}
