@@ -48,7 +48,7 @@ function App() {
       <div className="todo-box">
         <div className="top-box">
           <div className="heading">
-            <h2 style={{color: "white"}}>Todo-List</h2>
+            <h2 style={{color: "white"}}>Todo-List 2</h2>
           </div>
           <div className="todo-items">
             { todoArrayInP.length!==0 ?
